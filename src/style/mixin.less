@@ -1,0 +1,42 @@
+@primary-color: #d44439;
+
+// 文字
+@font-size-title: 24px;
+@font-size-subTitle: 18px;
+
+// 布局
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.flex-center{
+  justify-content: center;
+}
+.childPage{
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background: #fff;
+}
+// 跳转动画
+.fade-enter, .fade-appear {
+  opacity: 0;
+  transform: translateY(30%);
+}
+.fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
+  opacity: 1;
+  transform: translateY(0%);
+  transition: all 300ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transform: translateY(30%);
+  transition: all 300ms ease-in;
+}
