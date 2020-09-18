@@ -1,22 +1,36 @@
-import React, { Component } from 'react';
+import React, { memo, useEffect } from 'react';
+import ListView from '@/components/listView';
+import ListItem from '@/components/listItem';
 import { connect } from 'react-redux';
+import * as actionTypes from '../recommend/store/actionCreators';
 
-function mapStateToProps(state) {
+
+const mapStateToProps = (state) => ({
+  homePage: state.getIn(['recommend', 'homePage'])
+})
+
+const mapDispatchToProps = (dispatch) => {
   return {
-
-  };
-}
-
-class index extends Component {
-  render() {
-    return (
-      <div>
-        歌手
-      </div>
-    );
+    getHomePageDispatch() {
+      dispatch(actionTypes.getRecommend())
+    }
   }
 }
 
+const index = memo((props) => {
+  const {homePage} = props
+  const {getHomePageDispatch} = props
+  useEffect(() => {
+    getHomePageDispatch();
+    //eslint-disable-next-line
+  }, [])
+  const list = homePage ? homePage.toJS() : []
+  return (
+    <ListView list={list} renderItem={ListItem}></ListView>
+  );
+});
+
 export default connect(
   mapStateToProps,
+  mapDispatchToProps
 )(index);

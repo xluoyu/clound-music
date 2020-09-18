@@ -6,7 +6,6 @@ import styles from './index.module.less';
 const Index = (props) => {
   const layoutEl = useRef();
   const back = () => {
-    // console.log(layoutEl)
     layoutEl.current.goBack()
   }
   return (

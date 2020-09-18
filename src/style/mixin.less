@@ -1,10 +1,14 @@
-@primary-color: #d44439;
-
+@primary-color: #C20C0C;
+@page-background: #eee;
 // 文字
-@font-size-title: 24px;
-@font-size-subTitle: 18px;
+@font-size-title: 48px;
+@font-size-subTitle: 36px;
+.iconfont{
+  font-size: 32px;
+}
 
 // 布局
+@header-height: 110px;
 .flex{
   display: flex;
   flex-wrap: wrap;
@@ -14,6 +18,13 @@
 .flex-center{
   justify-content: center;
 }
+.flex-start{
+  justify-content: flex-start;
+}
+
+.padding-space{
+  padding-top: 30px;
+}
 .childPage{
   width: 100%;
   position: fixed;
@@ -22,6 +33,9 @@
   z-index: 10;
   background: #fff;
 }
+
+
+
 // 跳转动画
 .fade-enter, .fade-appear {
   opacity: 0;
@@ -30,7 +44,7 @@
 .fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
   opacity: 1;
   transform: translateY(0%);
-  transition: all 300ms ease-in;
+  transition: all 300ms;
 }
 .fade-exit {
   opacity: 1;
@@ -38,5 +52,5 @@
 .fade-exit.fade-exit-active {
   opacity: 0;
   transform: translateY(30%);
-  transition: all 300ms ease-in;
+  transition: all 300ms;
 }

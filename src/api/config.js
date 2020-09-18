@@ -1,23 +1,20 @@
 import axios from 'axios'
 import qs from 'qs'
 
-axios.default.timeout = 5000
-
 const env = process.env.NODE_ENV
-if (env === 'development') {
-  axios.default.baseURL = '/'
-} else {
-  axios.default.baseURL = '/'
-}
 
-axios.interceptors.request.use(config => {
-  // token && (config.headers.Authorization = token)
+const axiosInstance = axios.create({
+  baseURL: env === 'development' ? 'http://192.168.1.61:3300' : '/'
+})
+
+axiosInstance.interceptors.request.use(config => {
+  config.withCredentials = true
   return config
 }, error => {
   return Promise.reject(error)
 })
 
-axios.interceptors.response.use(response => {
+axiosInstance.interceptors.response.use(response => {
   return response
 }, error => {
   console.log(error.response)
@@ -26,7 +23,7 @@ axios.interceptors.response.use(response => {
 
 export function Get (url, params) {
   return new Promise((resolve, reject) => {
-      axios.get(url, {params}).then(res => {
+      axiosInstance.get(url, {params}).then(res => {
         resolve(res.data)
       }).catch(err => {
           reject(err)
@@ -37,9 +34,9 @@ export function Get (url, params) {
 export function Post (url, params, header) {
     params = header ? qs.stringify(params) : params
     return new Promise((resolve, reject) => {
-        axios.post(url, params, {
+        axiosInstance.post(url, params, {
           headers: {
-            'Content-Type': headers || 'application/json'
+            'Content-Type': header || 'application/json'
           }
         }).then(res => {
           resolve(res.data)

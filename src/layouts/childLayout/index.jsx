@@ -10,7 +10,6 @@ const Index = memo(withRouter((props) => {
       setShowStatus(false)
     }
   }));
-  console.log(props.children)
   return (
     // <div className="childPage">
       <CSSTransition

@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './style/base.css';
+import './style/base.less';
 import 'lib-flexible';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import store from './store'
+// import vconsole from 'vconsole'
+// new vconsole()
 
 ReactDOM.render(
   <Provider store={store}>
