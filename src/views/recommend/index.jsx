@@ -52,14 +52,13 @@ const index = memo((props) => {
   if (homeDataJS.length && loading) {
     setLoading(false)
   }
-
   return (
     <Scroll ref={scrollEl}
       pullUp={pullUp}
       pullDown={pullDown}
     >
-      {loading && <Loading></Loading>}
       <WingBlank>
+        {loading && <Loading></Loading>}
         <WhiteSpace size="lg"/>
         {bannerListJS.length ? <Swiper id="homeSwiper" bannerList={bannerListJS}></Swiper> : ''}
         <Recommend list={homeDataJS}></Recommend>

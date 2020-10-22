@@ -9,6 +9,7 @@ const Scroll = forwardRef((props, ref) => {
   const { direction, click, refresh, bounceTop, bounceBottom, lazyload } = props;
   const { pullUp, pullDown, onScroll } = props;
   useEffect(() => {
+    console.log(scrollContainerRef.current)
     const scroll = new BScroll(scrollContainerRef.current, {
       scrollX: direction === 'horizental',
       scrollY: direction === 'vertical',
@@ -45,6 +46,7 @@ const Scroll = forwardRef((props, ref) => {
   useEffect (() => {
     if (!bScroll || !pullUp) return;
     bScroll.on ('scrollEnd', () => {
+      console.log(bScroll)
       // 判断是否滑动到了底部
       if (bScroll.y <= bScroll.maxScrollY + 100){
         pullUp ();
@@ -58,7 +60,6 @@ const Scroll = forwardRef((props, ref) => {
   useEffect (() => {
     if (!bScroll || !pullDown) return;
     bScroll.on ('touchEnd', (pos) => {
-      console.log(pos)
       // 判断用户的下拉动作
       if (pos.y > 50) {
         pullDown ();
