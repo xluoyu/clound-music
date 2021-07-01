@@ -44,7 +44,7 @@ const index = memo((props) => {
   useEffect(() => {
     getBannerDispatch();
     getHomePageDispatch();
-    //eslint-disable-next-line
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const bannerListJS = bannerList ? bannerList.toJS() : []
@@ -52,6 +52,7 @@ const index = memo((props) => {
   if (homeDataJS.length && loading) {
     setLoading(false)
   }
+  
   return (
     <Scroll ref={scrollEl}
       pullUp={pullUp}

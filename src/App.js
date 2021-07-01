@@ -5,7 +5,7 @@ import routes from './routes';
 
 function App() {
   return (
-    <div>
+    <div id="routerView">
       <Suspense fallback={<div></div>}>
         <Router>
           {renderRoutes(routes)}

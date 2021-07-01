@@ -33,6 +33,7 @@ const homeLayout = memo((props) => {
     items[curState] = true
     setItemState(items)
   }
+  
   return (
     <div>
       {renderRoutes(route.routes)}

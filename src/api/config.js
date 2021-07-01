@@ -4,7 +4,7 @@ import qs from 'qs'
 const env = process.env.NODE_ENV
 
 const axiosInstance = axios.create({
-  baseURL: env === 'development' ? 'http://192.168.1.245:3300' : '/'
+  baseURL: env === 'development' ? 'http://192.168.0.184:3300' : '/'
 })
 
 axiosInstance.interceptors.request.use(config => {
