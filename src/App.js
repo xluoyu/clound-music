@@ -7,7 +7,7 @@ function App() {
   return (
     <div id="routerView">
       <Suspense fallback={<div></div>}>
-        <Router>
+        <Router basename={window.__POWERED_BY_QIANKUN__ ? '/music' : '/'}>
           {renderRoutes(routes)}
         </Router>
       </Suspense>

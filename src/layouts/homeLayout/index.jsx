@@ -23,6 +23,8 @@ const homeLayout = memo((props) => {
   }, {}))
   const navTo = (path) => {
     props.history.push(path)
+    // console.log(props)
+    console.log(window.history)
   }
   const handleTabState = (curState, curIndex) => {
     if (curState === tabState) return

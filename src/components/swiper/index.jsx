@@ -26,9 +26,9 @@ const index = memo((props) => {
         bannerList.map((item, index) => {
           return (
             <a href="/" key={index} className={style.slide}>
-              <LazyLoad placeholder={<img src={require('@/assets/music.png')} alt=""/>}>
+              {/* <LazyLoad placeholder={<img src={require('@/assets/music.png')} alt=""/>}> */}
                 <img src={item.imageUrl} alt=""/>
-              </LazyLoad>
+              {/* </LazyLoad> */}
             </a>
           )
         })

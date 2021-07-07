@@ -20,7 +20,7 @@ const index = memo((props) => {
                     <i className=""></i>
                     <span className={styles.count}>{item.playCount}</span>
                   </div>
-                  <p>{item.name}</p>
+                  <p className={styles.itemName}>{item.name}</p>
                 </div>
               )
             })
